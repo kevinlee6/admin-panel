@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<div class="section-header">
+  <h1>Cohorts</h1>
+  <%= link_to new_cohort_path do %>
+    <i class="fas fa-plus-circle"></i> Cohorts
+  <% end %>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Start date</th>
+      <th scope="col">End date</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cohorts.each do |cohort| %>
+      <tr>
+        <td scope="row"><%= cohort.name %></td>
+        <td scope="row"><%= cohort.start_date %></td>
+        <td scope="row"><%= cohort.end_date %></td>
+        <td><%= link_to 'Show', cohort %></td>
+        <td><%= link_to 'Edit', edit_cohort_path(cohort) %></td>
+        <td><%= link_to 'Destroy', cohort, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
