@@ -11,6 +11,7 @@
   <thead>
     <tr>
       <th scope="col">Name</th>
+      <th scope="col">Course</th>
       <th scope="col">Start date</th>
       <th scope="col">End date</th>
     </tr>
@@ -19,10 +20,10 @@
   <tbody>
     <% @cohorts.each do |cohort| %>
       <tr>
-        <td scope="row"><%= cohort.name %></td>
+        <td><%= link_to cohort.name, cohort %></td>
+        <td scope="row"><%= cohort.course_id %></td>
         <td scope="row"><%= cohort.start_date %></td>
         <td scope="row"><%= cohort.end_date %></td>
-        <td><%= link_to 'Show', cohort %></td>
         <td><%= link_to 'Edit', edit_cohort_path(cohort) %></td>
         <td><%= link_to 'Destroy', cohort, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
