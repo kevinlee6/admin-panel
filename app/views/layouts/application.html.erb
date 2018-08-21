@@ -11,14 +11,16 @@
   </head>
 
   <body>
-    <header id="main-header">
-      <h4>Admin Panel</h4>
+    <header id="main-header" class="row">
+      <p class="col"></p>
+      <h4 class="col">Admin Panel</h4>
+      <a href="/users/sign_in" class="col">Sign in</a>
     </header>
     <div id="wrapper" class="container row">
       <div id="left-navbar-container" class="col-md-2">
         <ul class="nav flex-column">
           <li id="dashboard" class="nav-item">
-            <a class="nav-item active" href="#">Dashboard</a>
+            <%= link_to "Dashboard", '/' %>
           </li>
           <li class="nav-item">
             <%= link_to "Courses", courses_path %>

@@ -7,13 +7,21 @@ body {
   padding: 0;
 }
 
+#main {
+  margin-top: 25px;
+}
+
+.inputs {
+  width: 70%;
+}
+
 #main-header {
   background: #000429;
   color: white;
-  text-align: center;
 
   h4{
     margin: 0;
+    text-align: center;
   }
 }
 
