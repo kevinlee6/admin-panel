@@ -1,19 +1,32 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 @import "bootstrap";
+@import "rails_bootstrap_forms";
 
 body {
   font-family: 'Raleway', sans-serif;
-  min-height: 100vh;
+  min-height: 99vh;
   padding: 0;
+}
+
+#main {
+  margin-top: 25px;
+}
+
+.inputs {
+  width: 70%;
+}
+
+.fa-minus-circle {
+  color: red;
 }
 
 #main-header {
   background: #000429;
   color: white;
-  text-align: center;
 
   h4{
     margin: 0;
+    text-align: center;
   }
 }
 
