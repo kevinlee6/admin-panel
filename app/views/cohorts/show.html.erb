@@ -13,12 +13,12 @@
 
 <p>
   <strong>Start date:</strong>
-  <%= @cohort.start_date %>
+  <%= @cohort.start_date.strftime("%B %d, %Y") %>
 </p>
 
 <p>
   <strong>End date:</strong>
-  <%= @cohort.end_date %>
+  <%= @cohort.end_date.strftime("%B %d, %Y") %>
 </p>
 
 <%= link_to 'Edit', edit_cohort_path(@cohort) %> |

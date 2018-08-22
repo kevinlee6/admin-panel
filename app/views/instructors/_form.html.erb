@@ -1,4 +1,4 @@
-<%= form_with(model: instructor, local: true) do |form| %>
+<%= bootstrap_form_for(@instructor, local: true) do |form| %>
   <% if instructor.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(instructor.errors.count, "error") %> prohibited this instructor from being saved:</h2>
@@ -11,37 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
-  </div>
+    <%= form.text_field :first_name, placeholder: "First name" %>
+    <%= form.text_field :last_name, placeholder: "Last name" %>
+    <%= form.number_field :age, placeholder: "Age" %>
+    <%= form.number_field :salary, placeholder: "Salary" %>
+    <%= form.select :education, Instructor.education %>
+    <%= form.select :cohort_id, Cohort.all.map { |x| [x.name, x.id] } %>
+    <%= form.submit "Submit", class:"btn btn-info" %>
 
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :age %>
-    <%= form.number_field :age %>
-  </div>
-
-  <div class="field">
-    <%= form.label :salary %>
-    <%= form.number_field :salary %>
-  </div>
-
-  <div class="field">
-    <%= form.label :education %>
-    <%= form.text_field :education %>
-  </div>
-
-  <div class="field">
-    <%= form.label :cohort_id %>
-    <%= form.number_field :cohort_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>
