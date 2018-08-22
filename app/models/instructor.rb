@@ -1,5 +1,4 @@
 class Instructor < ApplicationRecord
-  has_many :students
   belongs_to :cohort
 
   validates :first_name, :last_name, :education, presence: true

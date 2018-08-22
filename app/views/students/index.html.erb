@@ -13,7 +13,6 @@
       <th scope="col">Last name</th>
       <th scope="col">First name</th>
       <th scope="col">Age</th>
-      <th scope="col">Cohort ID</th>
     </tr>
   </thead>
 
@@ -23,7 +22,6 @@
         <td scope="row"><%= link_to student.last_name, student %></td>
         <td scope="row"><%= student.first_name %></td>
         <td scope="row"><%= student.age %></td>
-        <td scope="row"><%= student.cohort_id %></td>
         <td scope="row" class="text-center">
           <%= link_to edit_student_path(student) do %>
             <i class="far fa-edit"></i>
