@@ -18,21 +18,21 @@
     </header>
     <div id="wrapper" class="container row">
       <div id="left-navbar-container" class="col-md-2">
-        <ul class="nav flex-column">
+        <ul id="sidebar" class="nav flex-column">
           <li id="dashboard" class="nav-item">
-            <%= link_to "Dashboard", '/' %>
+            <%= link_to "Dashboard", root_path, class:"#{'active' if current_page?(root_path)}" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Courses", courses_path %>
+            <%= link_to "Courses", courses_path, class:"#{'active' if current_page?(courses_path)}" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Cohorts", cohorts_path %>
+            <%= link_to "Cohorts", cohorts_path, class:"#{'active' if current_page?(cohorts_path)}" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Instructors", instructors_path %>
+            <%= link_to "Instructors", instructors_path, class:"#{'active' if current_page?(instructors_path)}" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Students", students_path %>
+            <%= link_to "Students", students_path, class:"#{'active' if current_page?(students_path)}" %>
           </li>
         </ul>
       </div>

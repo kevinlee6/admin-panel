@@ -7,7 +7,7 @@
   <% end %>
 </div>
 
-<table class="table">
+<table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">Name</th>
@@ -21,7 +21,7 @@
     <% @cohorts.each do |cohort| %>
       <tr>
         <td><%= link_to cohort.name, cohort %></td>
-        <td scope="row"><%= cohort.course_id %></td>
+        <td scope="row"><%= Course.find(cohort.course_id).name %></td>
         <td scope="row"><%= cohort.start_date.strftime("%B %d, %Y") %></td>
         <td scope="row"><%= cohort.end_date.strftime("%B %d, %Y") %></td>
         <td scope="row" class="text-center">
@@ -30,7 +30,7 @@
           <% end %>
         </td>
         <td scope="row" class="text-center">
-          <%= link_to cohort, method: :delete, data: { confirm: 'Are you sure you want to delete?' } do %>
+            <%= link_to cohort, method: :delete, data: { confirm: 'Are you sure you want to delete?' } do %>
             <i class="fas fa-minus-circle"></i>
           <% end %>
         </td>
