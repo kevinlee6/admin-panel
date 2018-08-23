@@ -23,7 +23,7 @@ Course.create(
 
 5.times do |i|
   Cohort.create(
-    name: 'YEAR1',
+    name: "#{Course.find(i + 1).name[0..2].upcase}101",
     start_date: Time.now.to_date,
     end_date: Time.now.to_date,
     course_id: i + 1
@@ -31,7 +31,7 @@ Course.create(
 end
 
 Cohort.create(
-  name: 'YEAR2',
+  name: 'BIO201',
   start_date: Time.now.to_date,
   end_date: Time.now.to_date,
   course_id: 1
@@ -41,7 +41,7 @@ Cohort.create(
   Instructor.create(
     first_name: Faker::Name.last_name,
     last_name: Faker::Name.first_name,
-    age: rand(18...150),
+    age: rand(18..88),
     salary: rand(5..15) * 10000,
     education: Instructor.education.sample,
     cohort_id: rand(1...Cohort.all.length)
@@ -52,7 +52,7 @@ end
   Student.create(
     first_name: Faker::Name.last_name,
     last_name: Faker::Name.first_name,
-    age: rand(18...150)
+    age: rand(18..88)
   )
   CohortStudent.create(
     student_id: i + 1,

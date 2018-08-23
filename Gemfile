@@ -3,8 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
+gem 'active_link_to'
 gem 'bootstrap'
-gem 'bootstrap_form'
+gem "bootstrap_form", ">= 4.0.0.alpha1"
 gem 'devise'
 gem 'faker'
 gem 'jquery-rails'

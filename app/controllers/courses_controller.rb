@@ -4,12 +4,13 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
   def index
-    @courses = Course.all
+    @courses = Course.order(:name)
   end
 
   # GET /courses/1
   # GET /courses/1.json
   def show
+    @cohorts = @course.cohorts.order(:name)
   end
 
   # GET /courses/new

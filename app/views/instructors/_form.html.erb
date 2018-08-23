@@ -13,8 +13,8 @@
 
     <%= form.text_field :first_name, placeholder: "First name" %>
     <%= form.text_field :last_name, placeholder: "Last name" %>
-    <%= form.number_field :age, placeholder: "Age" %>
-    <%= form.number_field :salary, placeholder: "Salary" %>
+    <%= form.select :age, (1..149) %>
+    <%= form.number_field :salary, placeholder: "Yearly Salary" %>
     <%= form.select :education, Instructor.education %>
     <%= form.select :cohort_id, Cohort.all.map { |x| [x.name, x.id] } %>
     <%= form.submit "Submit", class:"btn btn-info" %>

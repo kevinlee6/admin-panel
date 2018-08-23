@@ -4,7 +4,7 @@ class InstructorsController < ApplicationController
   # GET /instructors
   # GET /instructors.json
   def index
-    @instructors = Instructor.all
+    @instructors = Instructor.order(:last_name)
   end
 
   # GET /instructors/1

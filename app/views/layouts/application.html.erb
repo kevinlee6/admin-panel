@@ -16,23 +16,39 @@
       <h4 class="col">Admin Panel</h4>
       <a href="/users/sign_in" class="col">Sign in</a>
     </header>
-    <div id="wrapper" class="container row">
+    <div id="wrapper" class="container-fluid row">
       <div id="left-navbar-container" class="col-md-2">
         <ul id="sidebar" class="nav flex-column">
           <li id="dashboard" class="nav-item">
             <%= link_to "Dashboard", root_path, class:"#{'active' if current_page?(root_path)}" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Courses", courses_path, class:"#{'active' if current_page?(courses_path)}" %>
+            <% if is_active_link?(courses_path, :inclusive) %>
+              <%= active_link_to 'Courses', courses_path %>
+            <% else %>
+              <%= link_to "Courses", courses_path %>
+            <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to "Cohorts", cohorts_path, class:"#{'active' if current_page?(cohorts_path)}" %>
+            <% if is_active_link?(cohorts_path, :inclusive) %>
+              <%= active_link_to 'Cohorts', cohorts_path %>
+            <% else %>
+              <%= link_to "Cohorts", cohorts_path %>
+            <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to "Instructors", instructors_path, class:"#{'active' if current_page?(instructors_path)}" %>
+            <% if is_active_link?(instructors_path, :inclusive) %>
+              <%= active_link_to 'Instructors', instructors_path %>
+            <% else %>
+              <%= link_to "Instructors", instructors_path %>
+            <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to "Students", students_path, class:"#{'active' if current_page?(students_path)}" %>
+            <% if is_active_link?(students_path, :inclusive) %>
+              <%= active_link_to 'Students', students_path %>
+            <% else %>
+              <%= link_to "Students", students_path %>
+            <% end %>
           </li>
         </ul>
       </div>

@@ -15,7 +15,7 @@
       <th scope="col">Age</th>
       <th scope="col">Salary</th>
       <th scope="col">Education</th>
-      <th scope="col">Cohort ID</th>
+      <th scope="col">Cohort</th>
     </tr>
   </thead>
 
@@ -25,9 +25,9 @@
         <td scope="row"><%= link_to instructor.last_name, instructor %></td>
         <td scope="row"><%= instructor.first_name %></td>
         <td scope="row"><%= instructor.age %></td>
-        <td scope="row"><%= instructor.salary %></td>
+        <td scope="row"><%= number_to_currency(instructor.salary, precision: 0) %></td>
         <td scope="row"><%= instructor.education %></td>
-        <td scope="row"><%= instructor.cohort_id %></td>
+        <td scope="row"><%= instructor.cohort.name %></td>
         <td scope="row" class="text-center">
           <%= link_to edit_instructor_path(instructor) do %>
             <i class="far fa-edit"></i>

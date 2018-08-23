@@ -17,7 +17,7 @@
 
 <p>
   <strong>Salary:</strong>
-  <%= @instructor.salary %>
+    <%= number_to_currency(@instructor.salary, precision: 0) %>
 </p>
 
 <p>

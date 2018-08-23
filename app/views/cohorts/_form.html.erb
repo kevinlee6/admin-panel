@@ -1,4 +1,4 @@
-<%= bootstrap_form_for(@cohort, local: true) do |form| %>
+<%= bootstrap_form_with(model: @cohort) do |form| %>
   <% if cohort.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(cohort.errors.count, "error") %> prohibited this cohort from being saved:</h2>
@@ -12,7 +12,7 @@
   <% end %>
 
     <%= form.text_field :name, placeholder: "Name" %>
-    <%= form.text_field :course_id, placeholder: "Course" %>
+    <%= form.select :course_id, Course.all.map { |x| [x.name, x.id] } %>
     <%= form.date_field :start_date %>
     <%= form.date_field :end_date %>
     <%= form.submit "Submit", class: "btn btn-info" %>

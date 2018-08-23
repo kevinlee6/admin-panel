@@ -8,6 +8,11 @@ body {
   padding: 0;
 }
 
+#wrapper {
+  margin: auto;
+  padding: 0;
+}
+
 #main {
   margin-top: 25px;
 }
@@ -15,6 +20,13 @@ body {
 #sidebar {
   position: sticky;
   top: 5%;
+}
+
+.buttons {
+  display: flex;
+  button {
+    margin: 20px 10px;
+  }
 }
 
 .inputs {
@@ -30,6 +42,7 @@ body {
   color: white;
   position: sticky;
   top: 0;
+  margin: 0;
   z-index: 2;
 
   h4{
