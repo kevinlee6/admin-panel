@@ -1,6 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
 @import "bootstrap";
 @import "rails_bootstrap_forms";
+@import "./partials/*";
 
 body {
   font-family: 'Raleway', sans-serif;
@@ -37,65 +38,8 @@ body {
   color: red;
 }
 
-#main-header {
-  background: #000429;
-  color: white;
-  position: sticky;
-  top: 0;
-  margin: 0;
-  z-index: 2;
-
-  h4{
-    margin: 0;
-    text-align: center;
-  }
-}
-
 .section-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.table-container {
-  overflow: auto;
-  height: 70vh;
-}
-
-table {
-  border-collapse: collapse;
-}
-
-table, th, td {
-  border: 1px solid black;
-}
-
-#left-navbar-container {
-  background: navy;
-  min-height: 100vh;
-  font-size: 1.5em;
-
-  ul {
-    .active {
-      color: goldenrod;
-    }
-
-    li {
-      border-top: 1px solid white;
-      padding: 10px 0;
-
-      a {
-        color: white;
-        text-decoration: none;
-
-        &:hover {
-          color: #da9e1a;
-        }
-      }
-    }
-  }
-
-  #dashboard {
-    border-top: none;
-  }
 }

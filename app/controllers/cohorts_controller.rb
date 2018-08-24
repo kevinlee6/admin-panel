@@ -11,7 +11,7 @@ class CohortsController < ApplicationController
   # GET /cohorts/1.json
   def show
     @students = @cohort.students.order(:last_name)
-    # @instructors = @cohort.instructors.order(:last_name)
+    @instructor = @cohort.instructor
   end
 
   # GET /cohorts/new

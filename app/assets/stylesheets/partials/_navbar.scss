@@ -1,0 +1,29 @@
+#left-navbar-container {
+  background: navy;
+  min-height: 100vh;
+  font-size: 1.5em;
+
+  ul {
+    .active {
+      color: goldenrod;
+    }
+
+    li {
+      border-top: 1px solid white;
+      padding: 10px 0;
+
+      a {
+        color: white;
+        text-decoration: none;
+
+        &:hover {
+          color: #da9e1a;
+        }
+      }
+    }
+  }
+
+  #dashboard {
+    border-top: none;
+  }
+}

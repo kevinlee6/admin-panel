@@ -1,0 +1,12 @@
+.table-container {
+  overflow: auto;
+  height: 70vh;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid black;
+}

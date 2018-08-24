@@ -1,15 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @cohort.name %>
-</p>
+<div class="section-header">
+  <h1><%= @cohort.name %></h1>
+</div>
 
 <p>
-  <strong>Course ID:</strong>
-  <%= @cohort.course_id %>
+  <strong>Course & Course ID:</strong>
+  <%= @cohort.course.name %> (<%= @cohort.course_id %>)
 </p>
-
 
 <p>
   <strong>Start date:</strong>
@@ -25,6 +23,23 @@
   <%= button_tag 'Edit', onclick: "location.href='#{edit_cohort_path(@cohort)}'", class: "btn btn-info" %>
   <%= button_tag 'Back', onclick: "location.href='#{cohorts_path}'", class: "btn btn-info" %>
 </div>
+
+<div class="section-header">
+  <h1><%= @cohort.name %>: Instructor</h1>
+</div>
+<% if @instructor %>
+  <p>
+    <strong>Name:</strong>
+    <%= link_to @instructor.first_name + ' ' + @instructor.last_name, @instructor %>
+  </p>
+
+  <p>
+    <strong>Education:</strong>
+    <%= @instructor.education %>
+  </p>
+<% else %>
+  <p>There is no instructor for this course.</p>
+<% end %>
 
 <div class="section-header">
   <h1><%= @cohort.name %>: Students</h1>

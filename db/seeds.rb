@@ -28,6 +28,15 @@ Course.create(
     end_date: Time.now.to_date,
     course_id: i + 1
   )
+
+  Instructor.create(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    age: rand(18..88),
+    salary: rand(5..15) * 10000,
+    education: Instructor.education.sample,
+    cohort_id: i + 1
+  )
 end
 
 Cohort.create(
@@ -37,21 +46,11 @@ Cohort.create(
   course_id: 1
 )
 
-20.times do
-  Instructor.create(
-    first_name: Faker::Name.last_name,
-    last_name: Faker::Name.first_name,
-    age: rand(18..88),
-    salary: rand(5..15) * 10000,
-    education: Instructor.education.sample,
-    cohort_id: rand(1...Cohort.all.length)
-  )
-end
 
 100.times do |i|
   Student.create(
-    first_name: Faker::Name.last_name,
-    last_name: Faker::Name.first_name,
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
     age: rand(18..88)
   )
   CohortStudent.create(

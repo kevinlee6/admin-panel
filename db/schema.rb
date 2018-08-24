@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_22_161436) do
+ActiveRecord::Schema.define(version: 2018_08_24_170017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,7 +29,8 @@ ActiveRecord::Schema.define(version: 2018_08_22_161436) do
     t.date "end_date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "course_id", null: false
+    t.bigint "course_id", null: false
+    t.index ["course_id"], name: "index_cohorts_on_course_id"
   end
 
   create_table "courses", force: :cascade do |t|
@@ -47,7 +48,8 @@ ActiveRecord::Schema.define(version: 2018_08_22_161436) do
     t.string "education", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "cohort_id"
+    t.bigint "cohort_id", null: false
+    t.index ["cohort_id"], name: "index_instructors_on_cohort_id", unique: true
   end
 
   create_table "students", force: :cascade do |t|
@@ -70,4 +72,6 @@ ActiveRecord::Schema.define(version: 2018_08_22_161436) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cohorts", "courses"
+  add_foreign_key "instructors", "cohorts"
 end
