@@ -58,6 +58,7 @@ body {
   position:relative;
 }
 .asc:before {
+  margin-right: 5px;
   content: "\f106";
   font-family: 'Font Awesome\ 5 Free';
 }
@@ -66,6 +67,7 @@ body {
   position:relative;
 }
 .desc:before {
+  margin-right: 5px;
   content: "\f107";
   font-family: 'Font Awesome\ 5 Free';
 }
