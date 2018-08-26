@@ -19,5 +19,7 @@
   <%= @student.age %>
 </p>
 
-<%= link_to 'Edit', edit_student_path(@student) %> |
-<%= link_to 'Back', students_path %>
+<div class="buttons">
+  <%= button_tag 'Edit', onclick: "location.href='#{edit_student_path(@student)}'", class: "btn btn-info" %>
+  <%= button_tag 'Back', onclick: "location.href='#{students_path}'", class: "btn btn-info" %>
+</div>

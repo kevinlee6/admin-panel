@@ -34,5 +34,7 @@
   <%= @instructor.cohort_id %>
 </p>
 
-<%= link_to 'Edit', edit_instructor_path(@instructor) %> |
-<%= link_to 'Back', instructors_path %>
+<div class="buttons">
+  <%= button_tag 'Edit', onclick: "location.href='#{edit_instructor_path(@instructor)}'", class: "btn btn-info" %>
+  <%= button_tag 'Back', onclick: "location.href='#{instructors_path}'", class: "btn btn-info" %>
+</div>
