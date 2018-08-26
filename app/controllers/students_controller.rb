@@ -4,7 +4,7 @@ class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
   def index
-    @students = Student.paginate(page: params[:page], per_page: 15).order(:last_name)
+    @students = Student.paginate(page: params[:page], per_page: 15).order(sort_column + ' ' + sort_direction)
   end
 
   # GET /students/1
@@ -71,4 +71,8 @@ class StudentsController < ApplicationController
     def student_params
       params.require(:student).permit(:first_name, :last_name, :age, :cohort_id)
     end
+
+  def sort_column
+    Student.column_names.include?(params[:sort]) ? params[:sort] : "last_name"
+  end
 end

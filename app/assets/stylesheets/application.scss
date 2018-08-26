@@ -53,3 +53,19 @@ body {
   background: green;
   color: white;
 }
+
+.asc {
+  position:relative;
+}
+.asc:before {
+  content: "\f106";
+  font-family: 'Font Awesome\ 5 Free';
+}
+
+.desc {
+  position:relative;
+}
+.desc:before {
+  content: "\f107";
+  font-family: 'Font Awesome\ 5 Free';
+}

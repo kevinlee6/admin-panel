@@ -4,7 +4,7 @@ class CohortsController < ApplicationController
   # GET /cohorts
   # GET /cohorts.json
   def index
-    @cohorts = Cohort.order(:name)
+    @cohorts = Cohort.order(sort_column + ' ' + sort_direction)
   end
 
   # GET /cohorts/1
@@ -64,13 +64,18 @@ class CohortsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_cohort
-      @cohort = Cohort.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def cohort_params
-      params.require(:cohort).permit(:name, :course_id, :start_date, :end_date)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_cohort
+    @cohort = Cohort.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def cohort_params
+    params.require(:cohort).permit(:name, :course_id, :start_date, :end_date)
+  end
+
+  def sort_column
+    Cohort.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
 end

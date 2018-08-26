@@ -4,7 +4,7 @@ class InstructorsController < ApplicationController
   # GET /instructors
   # GET /instructors.json
   def index
-    @instructors = Instructor.order(:last_name)
+    @instructors = Instructor.order(sort_column + ' ' + sort_direction)
   end
 
   # GET /instructors/1
@@ -62,13 +62,18 @@ class InstructorsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_instructor
-      @instructor = Instructor.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def instructor_params
-      params.require(:instructor).permit(:first_name, :last_name, :age, :salary, :education, :cohort_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_instructor
+    @instructor = Instructor.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def instructor_params
+    params.require(:instructor).permit(:first_name, :last_name, :age, :salary, :education, :cohort_id)
+  end
+
+  def sort_column
+    Instructor.column_names.include?(params[:sort]) ? params[:sort] : "last_name"
+  end
 end

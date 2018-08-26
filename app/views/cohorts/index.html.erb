@@ -10,10 +10,10 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th scope="col">Name</th>
+      <th scope="col"><%= sortable "name" %></th>
       <th scope="col">Course</th>
-      <th scope="col">Start date</th>
-      <th scope="col">End date</th>
+      <th scope="col"><%= sortable "start_date", "Start Date" %></th>
+      <th scope="col"><%= sortable "end_date", "End Date" %></th>
     </tr>
   </thead>
 
@@ -21,7 +21,7 @@
     <% @cohorts.each do |cohort| %>
       <tr>
         <td><%= link_to cohort.name, cohort %></td>
-        <td scope="row"><%= Course.find(cohort.course_id).name %></td>
+        <td scope="row"><%= cohort.course.name %></td>
         <td scope="row"><%= cohort.start_date.strftime("%B %d, %Y") %></td>
         <td scope="row"><%= cohort.end_date.strftime("%B %d, %Y") %></td>
         <td scope="row" class="text-center">

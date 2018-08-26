@@ -4,7 +4,7 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
   def index
-    @courses = Course.order(:name)
+    @courses = Course.order(sort_column + ' ' + sort_direction)
   end
 
   # GET /courses/1
@@ -63,13 +63,18 @@ class CoursesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_course
-      @course = Course.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def course_params
-      params.require(:course).permit(:name, :class_hours)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_course
+    @course = Course.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def course_params
+    params.require(:course).permit(:name, :class_hours)
+  end
+
+  def sort_column
+    Course.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
 end
