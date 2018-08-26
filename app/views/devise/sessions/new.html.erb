@@ -1,4 +1,16 @@
-<h2>Log in</h2>
+<% if current_page? root_path %>
+  <h1>Welcome</h1>
+  <p>Manage your educational platform.</p>
+  <p>Available groups are:</p>
+  <ul>
+    <li>Courses</li>
+    <li>Cohorts</li>
+    <li>Instructors</li>
+    <li>Students</li>
+  </ul>
+<% end %>
+
+<h2>Log in to proceed</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-group">

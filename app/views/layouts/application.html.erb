@@ -14,7 +14,12 @@
     <header id="main-header" class="row">
       <p class="col"></p>
       <h4 class="col">Admin Panel</h4>
-      <a href="/users/sign_in" class="col">Sign in</a>
+      <% if user_signed_in? %>
+        <%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: 'col' %>
+      <% else %>
+        <%= link_to 'Sign in', new_user_session_path, class: 'col' %>
+      <% end %>
+
     </header>
     <div id="wrapper" class="container-fluid row">
       <div id="left-navbar-container" class="col-md-2">

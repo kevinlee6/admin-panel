@@ -6,5 +6,11 @@ Rails.application.routes.draw do
   resources :instructors
   resources :students
 
-  root 'static_pages#home'
+  authenticated do
+    root 'static_pages#home', as: :authenticated_root
+  end
+
+  devise_scope :user do
+    root to: "devise/sessions#new"
+  end
 end
