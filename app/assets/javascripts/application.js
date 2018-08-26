@@ -17,3 +17,10 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+$(() => {
+    $('#table th').on('click', 'a', () => {
+        $.getScript(this.href);
+        return false;
+    });
+});
