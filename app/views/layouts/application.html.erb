@@ -12,13 +12,15 @@
 
   <body>
     <header id="main-header" class="row">
-      <p class="col"></p>
+      <div class="col account-link-container">
+        <%= link_to 'Account', edit_user_registration_path, class: 'header-link' %>
+      </div>
       <h4 class="col">Admin Panel</h4>
       <div class="sign-link-container col">
         <% if user_signed_in? %>
-          <%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: 'sign-link' %>
+          <%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: 'header-link' %>
         <% else %>
-          <%= link_to 'Sign in', new_user_session_path, class: 'col sign-link' %>
+          <%= link_to 'Sign in', new_user_session_path, class: 'header-link' %>
         <% end %>
       </div>
 

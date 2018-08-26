@@ -11,16 +11,21 @@
     text-align: center;
   }
 
+  .account-link-container {
+    text-align: left;
+  }
+
   .sign-link-container {
     text-align: right;
+  }
 
-    .sign-link {
-      color: white;
+  .header-link {
+    color: white;
+    font-size: 1.3em;
 
-      &:hover {
-        color: #bbb;
-        text-decoration: none;
-      }
+    &:hover {
+      color: #bbb;
+      text-decoration: none;
     }
   }
 }
