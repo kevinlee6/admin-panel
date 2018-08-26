@@ -10,4 +10,17 @@
     margin: 0;
     text-align: center;
   }
+
+  .sign-link-container {
+    text-align: right;
+
+    .sign-link {
+      color: white;
+
+      &:hover {
+        color: #bbb;
+        text-decoration: none;
+      }
+    }
+  }
 }
