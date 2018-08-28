@@ -7,34 +7,6 @@
   <% end %>
 </div>
 
-<table class="table table-striped table-bordered">
-  <thead>
-    <tr>
-      <th scope="col"><%= sortable "name" %></th>
-      <th scope="col">Course</th>
-      <th scope="col"><%= sortable "start_date", "Start Date" %></th>
-      <th scope="col"><%= sortable "end_date", "End Date" %></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @cohorts.each do |cohort| %>
-      <tr>
-        <td><%= link_to cohort.name, cohort %></td>
-        <td scope="row"><%= cohort.course.name %></td>
-        <td scope="row"><%= cohort.start_date.strftime("%B %d, %Y") %></td>
-        <td scope="row"><%= cohort.end_date.strftime("%B %d, %Y") %></td>
-        <td scope="row" class="text-center">
-          <%= link_to edit_cohort_path(cohort) do %>
-            <i class="far fa-edit"></i>
-          <% end %>
-        </td>
-        <td scope="row" class="text-center">
-            <%= link_to cohort, method: :delete, data: { confirm: 'Are you sure you want to delete?' } do %>
-            <i class="fas fa-minus-circle"></i>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div id="table">
+  <%= render 'table' %>
+</div>

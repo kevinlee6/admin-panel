@@ -1,0 +1,27 @@
+<table class="table table-striped table-bordered">
+  <thead>
+  <tr>
+    <th scope="col"><%= sortable 'name' %></th>
+    <th scope="col"><%= sortable 'class_hours' %></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @courses.each do |course| %>
+    <tr>
+      <td><%= link_to course.name, course %></td>
+      <td scope="row"><%= course.class_hours %></td>
+      <td scope="row" class="text-center">
+        <%= link_to edit_course_path(course) do %>
+          <i class="far fa-edit"></i>
+        <% end %>
+      </td>
+      <td scope="row" class="text-center">
+        <%= link_to course, method: :delete, data: { confirm: 'Are you sure you want to delete?' } do %>
+          <i class="fas fa-minus-circle"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
