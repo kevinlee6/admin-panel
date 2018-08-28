@@ -17,7 +17,7 @@
         <% end %>
       </td>
       <td scope="row" class="text-center">
-        <%= link_to course, method: :delete, data: { confirm: 'Are you sure you want to delete?' } do %>
+        <%= link_to course, method: :delete, remote: true, data: { confirm: 'Are you sure you want to delete?' } do %>
           <i class="fas fa-minus-circle"></i>
         <% end %>
       </td>

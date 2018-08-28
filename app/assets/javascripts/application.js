@@ -19,7 +19,7 @@
 //= require_tree .
 
 $(() => {
-    $('#table th').on('click', 'a', () => {
+    $('#table th, #table .pagination').on('click', 'a', () => {
         $.getScript(this.href);
         return false;
     });

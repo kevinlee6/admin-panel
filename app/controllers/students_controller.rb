@@ -4,7 +4,7 @@ class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
   def index
-    @students = Student.paginate(page: params[:page], per_page: 15).order(sort_column + ' ' + sort_direction)
+    @students = Student.order(sort_column + ' ' + sort_direction).page params[:page]
   end
 
   # GET /students/1
@@ -55,10 +55,11 @@ class StudentsController < ApplicationController
   # DELETE /students/1.json
   def destroy
     @student.destroy
-    respond_to do |format|
-      format.html { redirect_to students_url, notice: 'Student was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    @students = Student.order(sort_column + ' ' + sort_direction).page params[:page]
+  end
+
+  def addcohort
+
   end
 
   private

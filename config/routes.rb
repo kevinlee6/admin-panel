@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :courses
   resources :instructors
   resources :students
+  get 'student/addcohort'
 
   authenticated do
     root 'static_pages#home', as: :authenticated_root

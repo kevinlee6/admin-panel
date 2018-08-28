@@ -55,10 +55,7 @@ class InstructorsController < ApplicationController
   # DELETE /instructors/1.json
   def destroy
     @instructor.destroy
-    respond_to do |format|
-      format.html { redirect_to instructors_url, notice: 'Instructor was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    @instructors = Instructor.order(sort_column + ' ' + sort_direction)
   end
 
   private
