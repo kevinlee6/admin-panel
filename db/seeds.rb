@@ -1,10 +1,10 @@
 require 'faker'
-admin = User.create!(
-    email: 'kevin.lee@gmail.com',
-    password: 'password'
-)
+# admin = User.create!(
+#     email: 'kevin.lee@gmail.com',
+#     password: 'password'
+# )
 
-admin.add_role :admin
+# admin.add_role :admin
 
 Course.create!(
   name: 'Biology',
@@ -44,7 +44,7 @@ Course.create!(
     cohort_id: i + 1
   )
 
-  user = User.create!(
+  instructor.user = User.create!(
     email: instructor.first_name[0] +
         instructor.last_name +
         instructor.id.to_s +
@@ -52,7 +52,7 @@ Course.create!(
     password: 'password'
   )
 
-  user.add_role :instructor
+  instructor.user.add_role :instructor
 end
 
 Cohort.create!(
@@ -72,13 +72,13 @@ Cohort.create!(
     student_id: i + 1,
     cohort_id: rand(1..Cohort.all.length)
   )
-  user = User.create!(
+  student.user = User.create!(
     email: student.first_name[0] +
-        student.last_name +
-        student.id.to_s +
-        '@school.edu',
+         student.last_name +
+         student.id.to_s +
+         '@school.edu',
     password: 'password'
   )
 
-  user.add_role :student
+  student.user.add_role :student
 end
