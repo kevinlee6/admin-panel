@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-  before_action :set_student, only: [:show, :edit, :update, :destroy]
+  before_action :set_student, only: [:show, :edit, :update, :destroy, :ajax]
 
   # GET /students
   # GET /students.json
@@ -60,6 +60,10 @@ class StudentsController < ApplicationController
 
   def addcohort
 
+  end
+
+  def ajax
+    @student.update(student_params)
   end
 
   private

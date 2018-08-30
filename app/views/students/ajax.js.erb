@@ -1,0 +1,5 @@
+//if (Number($("#student-age-<%= @student.id %>").value) < 1 ||
+//    $(Number("#student-age-<%= @student.id %>".value) > 149)) {
+//    alert('Age can only be between 1 and 149, inclusive.');
+//} else
+  $("#student-<%= @student.id %>").html('<%= j render 'row_updated' %>');

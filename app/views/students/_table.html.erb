@@ -8,12 +8,12 @@
   </thead>
   <tbody>
   <% @students.each do |student| %>
-    <tr>
+    <tr id="student-<%= student.id %>">
       <td scope="row"><%= link_to student.last_name, student %></td>
       <td scope="row"><%= student.first_name %></td>
       <td scope="row"><%= student.age %></td>
       <td scope="row" class="text-center">
-        <%= link_to edit_student_path(student) do %>
+        <%= link_to edit_student_path(student), remote: true do %>
           <i class="far fa-edit"></i>
         <% end %>
       </td>

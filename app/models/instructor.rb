@@ -4,6 +4,7 @@ class Instructor < ApplicationRecord
   end
 
   belongs_to :cohort
+  has_one :user, as: :userable
 
   validates :first_name, :last_name, :education, presence: true
   validates :education, inclusion: { in: Instructor.education }

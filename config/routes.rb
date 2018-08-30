@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :instructors
   resources :students
   get 'student/addcohort'
+  patch 'students/ajax/:id', to: 'students#ajax'
 
   authenticated do
     root 'static_pages#home', as: :authenticated_root
