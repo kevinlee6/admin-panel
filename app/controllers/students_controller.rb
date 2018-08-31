@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-  before_action :set_student, only: [:show, :edit, :update, :destroy, :ajax]
+  before_action :set_student, only: [:show, :edit, :update, :destroy, :ajax, :addcohort, :postcohort]
 
   # GET /students
   # GET /students.json
@@ -19,6 +19,30 @@ class StudentsController < ApplicationController
 
   # GET /students/1/edit
   def edit
+  end
+
+  def addcohort
+    cohorts = Cohort.all
+    @cohorts_left = cohorts.reject do |cohort|
+      @student.cohorts.include?(cohort)
+    end
+  end
+
+  def postcohort
+    added = CohortStudent.create!(
+      student_id: params[:id],
+      cohort_id: params[:cohort_id]
+    )
+
+    respond_to do |format|
+      if added.save
+        format.html { redirect_to @student, notice: 'Cohort was successfully added.' }
+        format.json { render :show, status: :created, location: @student }
+      else
+        format.html { render :new }
+        format.json { render json: @student.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # POST /students
@@ -56,10 +80,6 @@ class StudentsController < ApplicationController
   def destroy
     @student.destroy
     @students = Student.order(sort_column + ' ' + sort_direction).page params[:page]
-  end
-
-  def addcohort
-
   end
 
   def ajax

@@ -22,10 +22,13 @@
   <%= button_tag 'Back', onclick: "location.href='#{students_path}'", class: "btn btn-info" %>
 </div>
 
-<h3>Enrolled cohorts</h3>
-<%= link_to new_cohort_path do %>
-  <i class="fas fa-plus-circle"></i> Cohorts
-<% end %>
+<h3>
+  Enrolled cohorts
+  <%= link_to addcohort_path(@student) do %>
+    <i class="fas fa-plus-circle"></i>
+  <% end %>
+</h3>
+
 <table class="table table-striped table-bordered">
   <thead>
   <tr>
