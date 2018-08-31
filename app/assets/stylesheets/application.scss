@@ -40,8 +40,12 @@ body {
 
 .section-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+
+  .fas {
+    font-size: 2em;
+    margin: 0 15px;
+  }
 }
 
 .alert-alert {
