@@ -11,6 +11,13 @@
   </head>
 
   <body>
+    <%# unless user_signed_in? %>
+<!--      <div id="signin">-->
+<!--        <i class="fas fa-graduation-cap"></i>-->
+
+<!--      </div>-->
+    <%# end %>
+
     <header id="main-header" class="row">
       <div class="col account-link-container">
         <%= link_to 'Account', edit_user_registration_path, class: 'header-link' %>

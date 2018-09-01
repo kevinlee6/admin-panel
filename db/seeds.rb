@@ -1,10 +1,15 @@
 require 'faker'
-# admin = User.create!(
-#     email: 'kevin.lee@gmail.com',
-#     password: 'password'
-# )
+admin = Admin.create!(
+  first_name: 'Kevin',
+  last_name: 'Lee'
+)
 
-# admin.add_role :admin
+admin.user = User.create!(
+  email: 'kevin.lee@gmail.com',
+  password: 'password'
+)
+
+admin.user.add_role :admin
 
 Course.create!(
   name: 'Biology',

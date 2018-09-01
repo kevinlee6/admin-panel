@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
+  include Pundit
+  # after_action :verify_authorized
   helper_method :sort_column, :sort_direction
 
   def after_sign_in_path_for(user)

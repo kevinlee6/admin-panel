@@ -1,4 +1,4 @@
-class CoursePolicy
+class ApplicationPolicy
   attr_reader :user, :record
 
   def initialize(user, record)
@@ -7,7 +7,7 @@ class CoursePolicy
   end
 
   def index?
-    false
+    @user.has_role? :student
   end
 
   def show?

@@ -23,9 +23,13 @@ class CohortsController < ApplicationController
   def edit
   end
 
+  def addstudent
+  end
+
   # POST /cohorts
   # POST /cohorts.json
   def create
+    authorize @cohort
     @cohort = Cohort.new(cohort_params)
 
     respond_to do |format|
