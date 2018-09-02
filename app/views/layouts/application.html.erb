@@ -11,71 +11,73 @@
   </head>
 
   <body>
-    <%# unless user_signed_in? %>
-<!--      <div id="signin">-->
-<!--        <i class="fas fa-graduation-cap"></i>-->
-
-<!--      </div>-->
-    <%# end %>
-
-    <header id="main-header" class="row">
-      <div class="col account-link-container">
-        <%= link_to 'Account', edit_user_registration_path, class: 'header-link' %>
-      </div>
-      <h4 class="col">Admin Panel</h4>
-      <div class="sign-link-container col">
-        <% if user_signed_in? %>
-          <%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: 'header-link' %>
-        <% else %>
-          <%= link_to 'Sign in', new_user_session_path, class: 'header-link' %>
-        <% end %>
-      </div>
-
-    </header>
-    <div id="wrapper" class="container-fluid row">
-      <div id="left-navbar-container" class="col-md-2">
-        <ul id="sidebar" class="nav flex-column">
-          <li id="dashboard" class="nav-item">
-            <%= link_to "Dashboard", root_path, class:"#{'active' if current_page?(root_path)}" %>
-          </li>
-          <li class="nav-item">
-            <% if is_active_link?(courses_path, :inclusive) %>
-              <%= active_link_to 'Courses', courses_path %>
-            <% else %>
-              <%= link_to "Courses", courses_path %>
-            <% end %>
-          </li>
-          <li class="nav-item">
-            <% if is_active_link?(cohorts_path, :inclusive) %>
-              <%= active_link_to 'Cohorts', cohorts_path %>
-            <% else %>
-              <%= link_to "Cohorts", cohorts_path %>
-            <% end %>
-          </li>
-          <li class="nav-item">
-            <% if is_active_link?(instructors_path, :inclusive) %>
-              <%= active_link_to 'Instructors', instructors_path %>
-            <% else %>
-              <%= link_to "Instructors", instructors_path %>
-            <% end %>
-          </li>
-          <li class="nav-item">
-            <% if is_active_link?(students_path, :inclusive) %>
-              <%= active_link_to 'Students', students_path %>
-            <% else %>
-              <%= link_to "Students", students_path %>
-            <% end %>
-          </li>
-        </ul>
-      </div>
-      <div class="col-md-10">
-        <div id="main" class="container">
-          <% flash.each do |key, value| %>
-            <div class="alert alert-<%= key %>"><%= value %></div>
-          <% end %>
+    <% unless user_signed_in? %>
+      <div id="signin-container">
+          <div id="signin">
+          <i class="fas fa-graduation-cap"></i>
           <%= yield %>
         </div>
       </div>
-    </div>
+    <% else %>
+      <header id="main-header" class="row">
+        <div class="col account-link-container">
+          <%= link_to 'Account', edit_user_registration_path, class: 'header-link' %>
+        </div>
+        <h4 class="col">Admin Panel</h4>
+        <div class="sign-link-container col">
+          <% if user_signed_in? %>
+            <%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: 'header-link' %>
+          <% else %>
+            <%= link_to 'Sign in', new_user_session_path, class: 'header-link' %>
+          <% end %>
+        </div>
+
+      </header>
+      <div id="wrapper" class="container-fluid row">
+        <div id="left-navbar-container" class="col-md-2">
+          <ul id="sidebar" class="nav flex-column">
+            <li id="dashboard" class="nav-item">
+              <%= link_to "Dashboard", root_path, class:"#{'active' if current_page?(root_path)}" %>
+            </li>
+            <li class="nav-item">
+              <% if is_active_link?(courses_path, :inclusive) %>
+                <%= active_link_to 'Courses', courses_path %>
+              <% else %>
+                <%= link_to "Courses", courses_path %>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <% if is_active_link?(cohorts_path, :inclusive) %>
+                <%= active_link_to 'Cohorts', cohorts_path %>
+              <% else %>
+                <%= link_to "Cohorts", cohorts_path %>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <% if is_active_link?(instructors_path, :inclusive) %>
+                <%= active_link_to 'Instructors', instructors_path %>
+              <% else %>
+                <%= link_to "Instructors", instructors_path %>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <% if is_active_link?(students_path, :inclusive) %>
+                <%= active_link_to 'Students', students_path %>
+              <% else %>
+                <%= link_to "Students", students_path %>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-10">
+          <div id="main" class="container">
+            <% flash.each do |key, value| %>
+              <div class="alert alert-<%= key %>"><%= value %></div>
+            <% end %>
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </body>
 </html>

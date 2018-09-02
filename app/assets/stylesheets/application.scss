@@ -9,23 +9,6 @@ body {
   padding: 0;
 }
 
-#signin {
-  position: absolute;
-  z-index: 2000;
-  background: navy;
-  height:110vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-
-  .fa-graduation-cap {
-    position: absolute;
-    font-size: 15vw;
-    top: 10%;
-    color: white
-  }
-}
-
 #wrapper {
   margin: auto;
   padding: 0;

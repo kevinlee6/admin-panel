@@ -1,4 +1,4 @@
-<% if current_page? root_path %>
+<% if user_signed_in? %>
   <h1>Welcome</h1>
   <p>Manage your educational platform.</p>
   <p>Available groups are:</p>
@@ -8,31 +8,29 @@
     <li>Instructors</li>
     <li>Students</li>
   </ul>
+<% else %>
+  <div id="landing">
+    <h2>Manage your admin panel</h2>
+
+    <%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-group">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password" %>
+      </div>
+
+      <% if devise_mapping.rememberable? -%>
+        <div class="form-group">
+          <%= f.check_box :remember_me %>
+        </div>
+      <% end -%>
+
+      <div class="actions">
+        <%= f.submit "Log in", class: "btn btn-info" %>
+      </div>
+    <% end %>
+    <%= render "devise/shared/links" %>
+  </div>
 <% end %>
-
-<h2>Log in to proceed</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-group">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "inputs" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "inputs" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="form-group">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in", class: "btn btn-info" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>

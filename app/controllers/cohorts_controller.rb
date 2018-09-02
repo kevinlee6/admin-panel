@@ -1,5 +1,5 @@
 class CohortsController < ApplicationController
-  before_action :set_cohort, only: [:show, :edit, :update, :destroy]
+  before_action :set_cohort, only: [:show, :edit, :update, :destroy, :addstudent, :poststudent]
 
   # GET /cohorts
   # GET /cohorts.json
@@ -24,12 +24,32 @@ class CohortsController < ApplicationController
   end
 
   def addstudent
+    students = Student.all
+    @students_left = students.order(:last_name).reject do |student|
+      @cohort.students.include?(student)
+    end
+  end
+
+  def poststudent
+    added = CohortStudent.create!(
+      student_id: params[:student_id],
+      cohort_id: params[:id]
+    )
+
+    respond_to do |format|
+      if added.save
+        format.html { redirect_to @cohort, notice: 'Student was successfully added.' }
+        format.json { render :show, status: :created, location: @cohort }
+      else
+        format.html { render :new }
+        format.json { render json: @cohort.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # POST /cohorts
   # POST /cohorts.json
   def create
-    authorize @cohort
     @cohort = Cohort.new(cohort_params)
 
     respond_to do |format|

@@ -1,4 +1,4 @@
-<%= bootstrap_form_with(model: @cohort) do |form| %>
+<%= bootstrap_form_for(@cohort, local:true) do |form| %>
   <% if cohort.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(cohort.errors.count, "error") %> prohibited this cohort from being saved:</h2>

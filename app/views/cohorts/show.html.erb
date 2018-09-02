@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <div class="section-header">
   <h1><%= @cohort.name %></h1>
 </div>
@@ -43,7 +41,7 @@
 
 <div class="section-header">
   <h1><%= @cohort.name %>: Students</h1>
-  <%= link_to addcohort_path(@cohort) do %>
+  <%= link_to addstudent_path(@cohort) do %>
     <i class="fas fa-plus-circle"></i>
   <% end %>
 </div>

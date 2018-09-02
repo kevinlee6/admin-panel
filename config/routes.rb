@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   resources :courses
   resources :instructors
   resources :students
-  get '/students/:id/addcohort', to: 'students#addcohort', as: :addcohort
+  get '/students/:id/addcohort', to: 'students#addcohort', as: 'addcohort'
   post '/students/:id/addcohort', to: 'students#postcohort'
+  get '/cohorts/:id/addstudent', to: 'cohorts#addstudent', as: 'addstudent'
+  post '/cohorts/:id/addstudent', to: 'cohorts#poststudent'
   patch 'students/ajax/:id', to: 'students#ajax'
 
   authenticated do

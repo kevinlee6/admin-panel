@@ -1,0 +1,9 @@
+<h3>Available students</h3>
+<%= bootstrap_form_with do |f| %>
+  <%= f.select :student_id, @students_left.map { |x| [x.first_name + ' ' + x.last_name, x.id] } %>
+  <%= f.submit "Submit", class:'btn btn-info' %>
+<% end %>
+
+<div>
+
+</div>
