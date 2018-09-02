@@ -1,24 +1,16 @@
-# README
+# Admin Panel
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Built with:
+<ul>
+    <li>Ruby on Rails</li>
+</ul>
 
-Things you may want to cover:
+Four manageable groups:
+<ul>
+    <li>Courses</li>
+    <li>Cohorts</li>
+    <li>Instructors</li>
+    <li>Students</li>
+</ul>
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The administrator is able to create, read, update, and delete any item in any group.
