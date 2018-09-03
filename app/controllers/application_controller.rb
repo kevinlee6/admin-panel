@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   include Pundit
-  # after_action :verify_authorized
+  protect_from_forgery
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   helper_method :sort_column, :sort_direction
 
   def after_sign_in_path_for(user)
@@ -14,7 +15,12 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
-  end
+    def user_not_authorized
+      flash[:alert] = 'You do not have permission to view this content.'
+      redirect_to request.referrer || root_path
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    end
 end

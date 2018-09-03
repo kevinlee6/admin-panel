@@ -10,6 +10,7 @@ class InstructorsController < ApplicationController
   # GET /instructors/1
   # GET /instructors/1.json
   def show
+    authorize @instructor
   end
 
   # GET /instructors/new

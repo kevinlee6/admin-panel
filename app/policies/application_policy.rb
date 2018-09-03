@@ -11,7 +11,7 @@ class ApplicationPolicy
   end
 
   def show?
-    false
+    user.has_role? :admin
   end
 
   def create?
@@ -31,7 +31,7 @@ class ApplicationPolicy
   end
 
   def destroy?
-    false
+    user.has_role? :admin
   end
 
   class Scope
