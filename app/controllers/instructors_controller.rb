@@ -16,10 +16,12 @@ class InstructorsController < ApplicationController
   # GET /instructors/new
   def new
     @instructor = Instructor.new
+    authorize @instructor
   end
 
   # GET /instructors/1/edit
   def edit
+    authorize @instructor
   end
 
   # POST /instructors
@@ -55,6 +57,7 @@ class InstructorsController < ApplicationController
   # DELETE /instructors/1
   # DELETE /instructors/1.json
   def destroy
+    authorize @instructor
     @instructor.destroy
     @instructors = Instructor.order(sort_column + ' ' + sort_direction)
   end

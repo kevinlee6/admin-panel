@@ -11,17 +11,19 @@
     <tr id="student-<%= student.id %>">
       <td scope="row"><%= link_to student.last_name, student %></td>
       <td scope="row"><%= student.first_name %></td>
-      <td scope="row"><%= student.age %></td>
-      <td scope="row" class="text-center">
-        <%= link_to edit_student_path(student), remote: true do %>
-          <i class="far fa-edit"></i>
-        <% end %>
-      </td>
-      <td scope="row" class="text-center">
-        <%= link_to student, method: :delete, remote: true, data: { confirm: 'Are you sure you want to delete?' } do %>
-          <i class="fas fa-minus-circle"></i>
-        <% end %>
-      </td>
+      <%# unless @user.has_role? 'admin' %>
+        <td scope="row"><%= student.age %></td>
+        <td scope="row" class="text-center">
+          <%= link_to edit_student_path(student), remote: true do %>
+            <i class="far fa-edit"></i>
+          <% end %>
+        </td>
+        <td scope="row" class="text-center">
+          <%= link_to student, method: :delete, remote: true, data: { confirm: 'Are you sure you want to delete?' } do %>
+            <i class="fas fa-minus-circle"></i>
+          <% end %>
+        </td>
+      <%# end %>
     </tr>
   <% end %>
   </tbody>

@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   private
 
     def user_not_authorized
-      flash[:alert] = 'You do not have permission to view this content.'
+      flash[:alert] = 'You do not have permission to view/edit this content.'
       redirect_to request.referrer || root_path
     end
 

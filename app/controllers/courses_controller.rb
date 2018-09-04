@@ -16,10 +16,12 @@ class CoursesController < ApplicationController
   # GET /courses/new
   def new
     @course = Course.new
+    authorize @course
   end
 
   # GET /courses/1/edit
   def edit
+    authorize @course
   end
 
   # POST /courses
@@ -55,6 +57,7 @@ class CoursesController < ApplicationController
   # DELETE /courses/1
   # DELETE /courses/1.json
   def destroy
+    authorize @course
     @course.destroy
     # respond_to do |format|
     #   format.html { redirect_to courses_url, notice: 'Course was successfully destroyed.' }

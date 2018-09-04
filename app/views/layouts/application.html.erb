@@ -13,8 +13,8 @@
   <body>
     <% unless user_signed_in? %>
       <div id="signin-container">
-          <div id="signin">
-          <i class="fas fa-graduation-cap"></i>
+          <div id="signin" class="fadeIn">
+            <i class="fas fa-graduation-cap pulse"></i>
           <%= yield %>
         </div>
       </div>

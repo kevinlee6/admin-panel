@@ -23,6 +23,10 @@ $(() => {
         $.getScript(this.href);
         return false;
     });
+
+    $('.fa-graduation-cap').hover(() => {
+        $('.fa-graduation-cap').toggleClass('pulse');
+    });
 });
 
 const extract = id => {
@@ -39,3 +43,4 @@ const extract = id => {
 
     $(`#student-submit-btn-${id}`).click();
 };
+

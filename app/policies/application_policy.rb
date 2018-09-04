@@ -7,15 +7,15 @@ class ApplicationPolicy
   end
 
   def index?
-    @user.has_role? :student
+    user.has_role? "admin"
   end
 
   def show?
-    user.has_role? :admin
+    false
   end
 
   def create?
-    false
+    @user.has_role? "admin"
   end
 
   def new?
@@ -23,7 +23,7 @@ class ApplicationPolicy
   end
 
   def update?
-    false
+    user.has_role? "admin"
   end
 
   def edit?
@@ -31,7 +31,7 @@ class ApplicationPolicy
   end
 
   def destroy?
-    user.has_role? :admin
+    user.has_role? "admin"
   end
 
   class Scope

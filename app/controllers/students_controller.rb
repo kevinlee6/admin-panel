@@ -15,10 +15,12 @@ class StudentsController < ApplicationController
   # GET /students/new
   def new
     @student = Student.new
+    authorize @student
   end
 
   # GET /students/1/edit
   def edit
+    authorize @student
   end
 
   def addcohort
@@ -78,6 +80,7 @@ class StudentsController < ApplicationController
   # DELETE /students/1
   # DELETE /students/1.json
   def destroy
+    authorize @student
     @student.destroy
     @students = Student.order(sort_column + ' ' + sort_direction).page params[:page]
   end

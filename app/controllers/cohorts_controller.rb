@@ -1,5 +1,5 @@
 class CohortsController < ApplicationController
-  before_action :set_cohort, only: [:show, :edit, :update, :destroy, :addstudent, :poststudent]
+  before_action :set_cohort, only: [:show, :edit, :update, :destroy, :addstudent, :poststudent, :removestudent]
 
   # GET /cohorts
   # GET /cohorts.json
@@ -17,10 +17,12 @@ class CohortsController < ApplicationController
   # GET /cohorts/new
   def new
     @cohort = Cohort.new
+    authorize @cohort
   end
 
   # GET /cohorts/1/edit
   def edit
+    authorize @cohort
   end
 
   def addstudent
@@ -45,6 +47,11 @@ class CohortsController < ApplicationController
         format.json { render json: @cohort.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def removestudent
+    CohortStudent.where(cohort_id: params[:id]).find_by(student_id: params[:student_id]).destroy
+    redirect_to cohort_path(@cohort)
   end
 
   # POST /cohorts
@@ -80,6 +87,7 @@ class CohortsController < ApplicationController
   # DELETE /cohorts/1
   # DELETE /cohorts/1.json
   def destroy
+    authorize @cohort
     @cohort.destroy
     @cohorts = Cohort.order(sort_column + ' ' + sort_direction)
   end

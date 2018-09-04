@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post '/students/:id/addcohort', to: 'students#postcohort'
   get '/cohorts/:id/addstudent', to: 'cohorts#addstudent', as: 'addstudent'
   post '/cohorts/:id/addstudent', to: 'cohorts#poststudent'
+  delete '/cohorts/:id/addstudent/:student_id', to: 'cohorts#removestudent'
   patch 'students/ajax/:id', to: 'students#ajax'
 
   authenticated do
