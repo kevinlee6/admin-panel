@@ -28,6 +28,7 @@ class InstructorsController < ApplicationController
   # POST /instructors.json
   def create
     @instructor = Instructor.new(instructor_params)
+    authorize @instructor
 
     respond_to do |format|
       if @instructor.save
@@ -43,6 +44,7 @@ class InstructorsController < ApplicationController
   # PATCH/PUT /instructors/1
   # PATCH/PUT /instructors/1.json
   def update
+    authorize @instructor
     respond_to do |format|
       if @instructor.update(instructor_params)
         format.html { redirect_to @instructor, notice: 'Instructor was successfully updated.' }

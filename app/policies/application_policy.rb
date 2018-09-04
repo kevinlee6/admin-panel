@@ -11,11 +11,11 @@ class ApplicationPolicy
   end
 
   def show?
-    false
+    @user.has_role? "admin"
   end
 
   def create?
-    @user.has_role? "admin"
+    user.has_role? "admin"
   end
 
   def new?
@@ -27,7 +27,7 @@ class ApplicationPolicy
   end
 
   def edit?
-    update?
+    user.has_role? "admin"
   end
 
   def destroy?

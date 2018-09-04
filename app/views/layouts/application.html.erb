@@ -13,9 +13,12 @@
   <body>
     <% unless user_signed_in? %>
       <div id="signin-container">
+          <% flash.each do |key, value| %>
+            <div class="alert alert-<%= key %>"><%= value %></div>
+          <% end %>
           <div id="signin" class="fadeIn">
             <i class="fas fa-graduation-cap pulse"></i>
-          <%= yield %>
+            <%= yield %>
         </div>
       </div>
     <% else %>

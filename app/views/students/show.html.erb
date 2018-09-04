@@ -23,7 +23,7 @@
   <%= button_tag 'Back', onclick: "location.href='#{students_path}'", class: "btn btn-info" %>
 </div>
 
-<% if (current_user.has_role? 'admin') || (current_user.userable.id == params[:id].to_i) %>
+<% if (current_user.has_role? 'admin') || current_user.userable && (current_user.userable.id == params[:id].to_i) %>
   <h3>
     Enrolled cohorts
     <%= link_to addcohort_path(@student) do %>
