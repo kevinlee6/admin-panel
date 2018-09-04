@@ -3,7 +3,9 @@
   <tr>
     <th scope="col"><%= sortable 'last_name' %></th>
     <th scope="col"><%= sortable 'first_name' %></th>
-    <th scope="col"><%= sortable 'age' %></th>
+    <% if current_user.has_role? 'admin' %>
+      <th scope="col"><%= sortable 'age' %></th>
+    <% end %>
   </tr>
   </thead>
   <tbody>
@@ -11,7 +13,7 @@
     <tr id="student-<%= student.id %>">
       <td scope="row"><%= link_to student.last_name, student %></td>
       <td scope="row"><%= student.first_name %></td>
-      <%# unless @user.has_role? 'admin' %>
+      <% if current_user.has_role? 'admin' %>
         <td scope="row"><%= student.age %></td>
         <td scope="row" class="text-center">
           <%= link_to edit_student_path(student), remote: true do %>
@@ -23,7 +25,7 @@
             <i class="fas fa-minus-circle"></i>
           <% end %>
         </td>
-      <%# end %>
+      <% end %>
     </tr>
   <% end %>
   </tbody>

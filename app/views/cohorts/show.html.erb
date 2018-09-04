@@ -18,7 +18,9 @@
 </p>
 
 <div class="buttons">
-  <%= button_tag 'Edit', onclick: "location.href='#{edit_cohort_path(@cohort)}'", class: "btn btn-info" %>
+  <% if current_user.has_role? 'admin' %>
+    <%= button_tag 'Edit', onclick: "location.href='#{edit_cohort_path(@cohort)}'", class: "btn btn-info" %>
+  <% end %>
   <%= button_tag 'Back', onclick: "location.href='#{cohorts_path}'", class: "btn btn-info" %>
 </div>
 
@@ -41,8 +43,10 @@
 
 <div class="section-header">
   <h1><%= @cohort.name %>: Students</h1>
-  <%= link_to addstudent_path(@cohort) do %>
-    <i class="fas fa-plus-circle"></i>
+  <% if current_user.has_role? 'admin' %>
+    <%= link_to addstudent_path(@cohort) do %>
+      <i class="fas fa-plus-circle"></i>
+    <% end %>
   <% end %>
 </div>
 
@@ -51,7 +55,9 @@
   <tr>
     <th scope="col">Last name</th>
     <th scope="col">First name</th>
-    <th scope="col">Age</th>
+    <% if current_user.has_role? 'admin' %>
+      <th scope="col">Age</th>
+    <% end %>
   </tr>
   </thead>
   <tbody>
@@ -59,17 +65,19 @@
     <tr>
       <td scope="row"><%= link_to student.last_name, student %></td>
       <td scope="row"><%= student.first_name %></td>
-      <td scope="row"><%= student.age %></td>
-      <td scope="row" class="text-center">
-        <%= link_to edit_student_path(student) do %>
-          <i class="far fa-edit"></i>
-        <% end %>
-      </td>
-      <td scope="row" class="text-center">
-        <%= link_to "#{addstudent_path(@cohort)}/#{student.id}", method: :delete, data: { confirm: 'Are you sure you want to delete?' } do %>
-          <i class="fas fa-minus-circle"></i>
-        <% end %>
-      </td>
+      <% if current_user.has_role? 'admin' %>
+        <td scope="row"><%= student.age %></td>
+        <td scope="row" class="text-center">
+          <%= link_to edit_student_path(student) do %>
+            <i class="far fa-edit"></i>
+          <% end %>
+        </td>
+        <td scope="row" class="text-center">
+          <%= link_to "#{addstudent_path(@cohort)}/#{student.id}", method: :delete, data: { confirm: 'Are you sure you want to delete?' } do %>
+            <i class="fas fa-minus-circle"></i>
+          <% end %>
+        </td>
+      <% end %>
     </tr>
   <% end %>
   </tbody>

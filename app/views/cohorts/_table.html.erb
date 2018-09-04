@@ -15,16 +15,18 @@
       <td scope="row"><%= cohort.course.name %></td>
       <td scope="row"><%= cohort.start_date.strftime("%B %d, %Y") %></td>
       <td scope="row"><%= cohort.end_date.strftime("%B %d, %Y") %></td>
-      <td scope="row" class="text-center">
-        <%= link_to edit_cohort_path(cohort) do %>
-          <i class="far fa-edit"></i>
-        <% end %>
-      </td>
-      <td scope="row" class="text-center">
-        <%= link_to cohort, method: :delete, remote: true, data: { confirm: 'Are you sure you want to delete?' } do %>
-          <i class="fas fa-minus-circle"></i>
-        <% end %>
-      </td>
+      <% if current_user.has_role? 'admin' %>
+        <td scope="row" class="text-center">
+          <%= link_to edit_cohort_path(cohort) do %>
+            <i class="far fa-edit"></i>
+          <% end %>
+        </td>
+        <td scope="row" class="text-center">
+          <%= link_to cohort, method: :delete, remote: true, data: { confirm: 'Are you sure you want to delete?' } do %>
+            <i class="fas fa-minus-circle"></i>
+          <% end %>
+        </td>
+      <% end %>
     </tr>
   <% end %>
   </tbody>

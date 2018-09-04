@@ -3,8 +3,10 @@
   <tr>
     <th scope="col"><%= sortable 'last_name', 'Last Name' %></th>
     <th scope="col"><%= sortable 'first_name', 'First Name' %></th>
-    <th scope="col"><%= sortable 'age' %></th>
-    <th scope="col"><%= sortable 'salary' %></th>
+    <% if current_user.has_role? 'admin' %>
+      <th scope="col"><%= sortable 'age' %></th>
+      <th scope="col"><%= sortable 'salary' %></th>
+    <% end %>
     <th scope="col"><%= sortable 'education' %></th>
     <th scope="col">Cohort</th>
   </tr>
@@ -15,20 +17,24 @@
     <tr>
       <td scope="row"><%= link_to instructor.last_name, instructor %></td>
       <td scope="row"><%= instructor.first_name %></td>
-      <td scope="row"><%= instructor.age %></td>
-      <td scope="row"><%= number_to_currency(instructor.salary, precision: 0) %></td>
+      <% if current_user.has_role? 'admin' %>
+        <td scope="row"><%= instructor.age %></td>
+        <td scope="row"><%= number_to_currency(instructor.salary, precision: 0) %></td>
+      <% end %>
       <td scope="row"><%= instructor.education %></td>
       <td scope="row"><%= instructor.cohort.name %></td>
-      <td scope="row" class="text-center">
-        <%= link_to edit_instructor_path(instructor) do %>
-          <i class="far fa-edit"></i>
-        <% end %>
-      </td>
-      <td scope="row" class="text-center">
-        <%= link_to instructor, method: :delete, remote: true, data: { confirm: 'Are you sure you want to delete?' } do %>
-          <i class="fas fa-minus-circle"></i>
-        <% end %>
-      </td>
+      <% if current_user.has_role? 'admin' %>
+        <td scope="row" class="text-center">
+          <%= link_to edit_instructor_path(instructor) do %>
+            <i class="far fa-edit"></i>
+          <% end %>
+        </td>
+        <td scope="row" class="text-center">
+          <%= link_to instructor, method: :delete, remote: true, data: { confirm: 'Are you sure you want to delete?' } do %>
+            <i class="fas fa-minus-circle"></i>
+          <% end %>
+        </td>
+      <% end %>
     </tr>
   <% end %>
   </tbody>
