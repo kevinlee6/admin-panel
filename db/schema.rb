@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2018_09_01_142832) do
     t.integer "age", null: false
     t.integer "salary", null: false
     t.string "education", null: false
-    t.bigint "cohort_id", null: false
+    t.bigint "cohort_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cohort_id"], name: "index_instructors_on_cohort_id"
