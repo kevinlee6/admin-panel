@@ -1,5 +1,5 @@
 class CohortsController < ApplicationController
-  before_action :set_cohort, only: [:show, :edit, :update, :destroy, :addstudent, :poststudent, :removestudent]
+  before_action :set_cohort, only: [:show, :edit, :update, :destroy, :addstudent, :poststudent, :removestudent, :addinstructor]
 
   # GET /cohorts
   # GET /cohorts.json
@@ -51,6 +51,11 @@ class CohortsController < ApplicationController
 
   def removestudent
     CohortStudent.where(cohort_id: params[:id]).find_by(student_id: params[:student_id]).destroy
+    redirect_to cohort_path(@cohort)
+  end
+
+  def addinstructor
+    @cohort.instructor = Instructor.find(params[:instructor_id])
     redirect_to cohort_path(@cohort)
   end
 

@@ -39,6 +39,11 @@
   </p>
 <% else %>
   <p>There is no instructor for this course.</p>
+  <p>Add an instructor:</p>
+  <%= bootstrap_form_with(model: @instructor) do |f| %>
+    <%= f.select :instructor_id, Instructor.where(cohort_id: nil).map { |x| [x.first_name + ' ' + x.last_name, x.id] }, hide_label: true %>
+    <%= f.submit 'Submit', class: 'btn btn-info' %>
+  <% end %>
 <% end %>
 
 <div class="section-header">

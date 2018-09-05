@@ -22,7 +22,11 @@
         <td scope="row"><%= number_to_currency(instructor.salary, precision: 0) %></td>
       <% end %>
       <td scope="row"><%= instructor.education %></td>
-      <td scope="row"><%= instructor.cohort.name %></td>
+      <% if instructor.cohort %>
+        <td scope="row"><%= instructor.cohort.name %></td>
+      <% else %>
+        <td scope="row">None</td>
+    <% end %>
       <% if current_user.has_role? 'admin' %>
         <td scope="row" class="text-center">
           <%= link_to edit_instructor_path(instructor) do %>

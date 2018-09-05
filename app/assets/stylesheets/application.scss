@@ -41,7 +41,7 @@ body {
 .section-header {
   display: flex;
   align-items: center;
-  margin-bottom: 1vh;
+  margin: 1vh 0;
 
   .fas {
     font-size: 2em;
@@ -79,4 +79,12 @@ body {
   margin-right: 5px;
   content: "\f107";
   font-family: 'Font Awesome\ 5 Free';
+}
+
+.quickadd {
+  width: 300px;
+  height: 300px;
+  margin: 30px;
+  //padding: 10%;
+  font-size: 2em;
 }

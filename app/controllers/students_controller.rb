@@ -56,6 +56,11 @@ class StudentsController < ApplicationController
       if @student.save
         format.html { redirect_to @student, notice: 'Student was successfully created.' }
         format.json { render :show, status: :created, location: @student }
+        @student.user = User.create(
+          email: @student.first_name[0] + @student.last_name + @student.id.to_s + '@school.edu',
+          password: 'password'
+        )
+        @student.user.add_role :student
       else
         format.html { render :new }
         format.json { render json: @student.errors, status: :unprocessable_entity }
