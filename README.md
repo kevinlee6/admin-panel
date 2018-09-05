@@ -1,4 +1,4 @@
-# Admin Panel
+# <a href='https://rails-admin-panel.herokuapp.com/'>Admin Panel</a>
 
 Built with:
 <ul>
