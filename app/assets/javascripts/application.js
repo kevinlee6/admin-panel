@@ -29,8 +29,8 @@ $(function() {
     });
 });
 
-const extract = function(id) {
-    const lName = document.getElementById(`student-lname-${id}`),
+var extract = function(id) {
+    var lName = document.getElementById(`student-lname-${id}`),
         fName = document.getElementById(`student-fname-${id}`),
         age = document.getElementById(`student-age-${id}`),
         lNameReal = document.getElementById(`student-lname-real-${id}`),
