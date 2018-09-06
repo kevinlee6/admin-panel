@@ -18,19 +18,19 @@
 //= require turbolinks
 //= require_tree .
 
-$(function() {
-    $('#table th, #table .pagination').on('click', 'a', function() {
+$(() => {
+    $('#table th, #table .pagination').on('click', 'a', () => {
         $.getScript(this.href);
         return false;
     });
 
-    $('.fa-graduation-cap').hover(function() {
+    $('.fa-graduation-cap').hover(() => {
         $('.fa-graduation-cap').toggleClass('pulse');
     });
 });
 
-var extract = function(id) {
-    var lName = document.getElementById(`student-lname-${id}`),
+const extract = id => {
+    const lName = document.getElementById(`student-lname-${id}`),
         fName = document.getElementById(`student-fname-${id}`),
         age = document.getElementById(`student-age-${id}`),
         lNameReal = document.getElementById(`student-lname-real-${id}`),
