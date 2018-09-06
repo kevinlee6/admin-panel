@@ -12,6 +12,7 @@ gem 'faker'
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'pundit'
+gem 'rails_12factor', group: :production
 gem 'rolify'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
