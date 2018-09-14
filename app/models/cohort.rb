@@ -1,6 +1,6 @@
 class Cohort < ApplicationRecord
   belongs_to :course
-  has_one :instructor
+  has_one :instructor, dependent: :nullify
   has_many :cohort_students
   has_many :students, through: :cohort_students
 
