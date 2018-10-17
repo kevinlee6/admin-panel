@@ -1,37 +1,34 @@
-# <a href='https://rails-admin-panel.herokuapp.com/'>Admin Panel</a>
+# [Admin Panel](https://rails-admin-panel.herokuapp.com/)
+
+![Login screen for admin panel](/public/rails-admin-panel-login.png)
 
 Demo login (with administrator privileges):
-<ul>
-    <li>Email: kevin.lee@gmail.com</li>
-    <li>Password: password</li>
-</ul>
+
+- Email: kevin.lee@gmail.com
+- Password: password
 
 Demo login (with non-administrator privileges):
-<ul>
-    <li>Email: aschmidt73@school.edu</li>
-    <li>Password: password</li>
-</ul>
+
+- Email: aschmidt73@school.edu
+- Password: password
 
 Built with:
-<ul>
-    <li>Ruby on Rails</li>
-    <li>Bootstrap 4</li>
-</ul>
+
+- Ruby on Rails
+- Bootstrap 4
 
 Notable gems used:
-<ul>
-    <li><a href="https://github.com/plataformatec/devise">Devise</a>: User authentication.</li>
-    <li><a href="https://github.com/RolifyCommunity/rolify">Rolify</a>: Assign roles to users.</li>
-    <li><a href="https://github.com/varvet/pundit">Pundit</a>: Restrict/grant access based on roles.</li>
-</ul>
+
+- [Devise](https://github.com/plataformatec/devise): User authentication.
+- [Rolify](https://github.com/RolifyCommunity/rolify): Assign roles to users.
+- [Pundit](https://github.com/varvet/pundit): Restrict/grant access based on roles.
 
 Four manageable groups:
-<ul>
-    <li>Courses</li>
-    <li>Cohorts</li>
-    <li>Instructors</li>
-    <li>Students</li>
-</ul>
+
+- Courses
+- Cohorts
+- Instructors
+- Students
 
 The administrator is able to create, read, update, and delete any item in any group.
 There is no option to create a user, since this admin panel is influenced by existing admin panels such as <a href="https://www.blackboard.com/index.html">Blackboard</a>.
