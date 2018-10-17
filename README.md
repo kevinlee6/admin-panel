@@ -30,5 +30,13 @@ Four manageable groups:
 - Instructors
 - Students
 
-The administrator is able to create, read, update, and delete any item in any group.
+The administrator is able to create, read, update, and delete any item in any group.\
 There is no option to create a user, since this admin panel is influenced by existing admin panels such as <a href="https://www.blackboard.com/index.html">Blackboard</a>.
+
+seeds.rb is configured to create:
+
+- One administrator
+- 5 Courses
+- 6 Cohorts (1 for each course, and one extra)
+- 5 Instructors
+- 100 Students
