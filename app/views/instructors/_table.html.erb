@@ -17,7 +17,7 @@
     <tr>
       <td scope="row"><%= link_to instructor.last_name, instructor %></td>
       <td scope="row"><%= instructor.first_name %></td>
-      <% if current_user.has_role? 'admin' %>
+      <% if current_user.has_cached_role?('admin') || current_user.has_role?('admin') %>
         <td scope="row"><%= instructor.age %></td>
         <td scope="row"><%= number_to_currency(instructor.salary, precision: 0) %></td>
       <% end %>

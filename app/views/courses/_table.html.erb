@@ -11,7 +11,7 @@
     <tr>
       <td><%= link_to course.name, course %></td>
       <td scope="row"><%= course.class_hours %></td>
-      <% if current_user.has_role? 'admin' %>
+      <% if current_user.has_cached_role?('admin') || current_user.has_role?('admin') %>
         <td scope="row" class="text-center">
           <%= link_to edit_course_path(course) do %>
             <i class="far fa-edit"></i>
