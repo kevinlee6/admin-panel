@@ -14,13 +14,12 @@ class ApplicationController < ActionController::Base
   end
 
   private
+  def user_not_authorized
+    flash[:alert] = 'You do not have permission to view/edit this content.'
+    redirect_to request.referrer || root_path
+  end
 
-    def user_not_authorized
-      flash[:alert] = 'You do not have permission to view/edit this content.'
-      redirect_to request.referrer || root_path
-    end
-
-    def sort_direction
-      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
-    end
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
 end

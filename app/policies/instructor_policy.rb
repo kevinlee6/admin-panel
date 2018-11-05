@@ -4,6 +4,4 @@ class InstructorPolicy < ApplicationPolicy
       scope.all
     end
   end
-
-
 end

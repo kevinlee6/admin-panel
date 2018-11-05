@@ -4,7 +4,7 @@ class InstructorsController < ApplicationController
   # GET /instructors
   # GET /instructors.json
   def index
-    @instructors = Instructor.order(sort_column + ' ' + sort_direction)
+    @instructors = Instructor.includes(:cohort).order(sort_column + ' ' + sort_direction)
   end
 
   # GET /instructors/1
