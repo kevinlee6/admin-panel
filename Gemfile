@@ -9,7 +9,7 @@ ruby '2.5.1'
 gem 'loofah', '>= 2.2.3'
 
 gem 'active_link_to'
-gem 'bootstrap'
+gem 'bootstrap', '~> 4.3.1'
 gem 'bootstrap4-kaminari-views'
 gem 'bootstrap_form', '>= 4.0.0.alpha1'
 gem 'coffee-rails', '~> 4.2'
