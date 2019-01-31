@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class InstructorsController < ApplicationController
-  before_action :set_instructor, only: [:show, :edit, :update, :destroy]
+  before_action :set_instructor, only: %i[show edit update destroy]
 
   # GET /instructors
   # GET /instructors.json
@@ -82,6 +84,6 @@ class InstructorsController < ApplicationController
   end
 
   def sort_column
-    Instructor.column_names.include?(params[:sort]) ? params[:sort] : "last_name"
+    Instructor.column_names.include?(params[:sort]) ? params[:sort] : 'last_name'
   end
 end

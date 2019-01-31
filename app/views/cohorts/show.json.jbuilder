@@ -1,1 +1,3 @@
-json.partial! "cohorts/cohort", cohort: @cohort
+# frozen_string_literal: true
+
+json.partial! 'cohorts/cohort', cohort: @cohort

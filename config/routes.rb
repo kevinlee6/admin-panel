@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   get 'static_pages/home'
   devise_for :users
@@ -18,6 +20,6 @@ Rails.application.routes.draw do
   end
 
   devise_scope :user do
-    root to: "devise/sessions#new"
+    root to: 'devise/sessions#new'
   end
 end

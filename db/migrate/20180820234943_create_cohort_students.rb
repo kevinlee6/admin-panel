@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateCohortStudents < ActiveRecord::Migration[5.2]
   def change
     create_table :cohort_students do |t|
@@ -7,6 +9,6 @@ class CreateCohortStudents < ActiveRecord::Migration[5.2]
       t.timestamps
     end
 
-    add_index :cohort_students, [:student_id, :cohort_id]
+    add_index :cohort_students, %i[student_id cohort_id]
   end
 end

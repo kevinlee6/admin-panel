@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_course, only: %i[show edit update destroy]
 
   # GET /courses
   # GET /courses.json
@@ -79,6 +81,6 @@ class CoursesController < ApplicationController
   end
 
   def sort_column
-    Course.column_names.include?(params[:sort]) ? params[:sort] : "name"
+    Course.column_names.include?(params[:sort]) ? params[:sort] : 'name'
   end
 end

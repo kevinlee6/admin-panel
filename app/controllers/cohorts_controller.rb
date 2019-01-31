@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class CohortsController < ApplicationController
-  before_action :set_cohort, only: [:show, :edit, :update, :destroy, :addstudent, :poststudent, :removestudent, :addinstructor]
+  before_action :set_cohort, only: %i[show edit update destroy addstudent poststudent removestudent addinstructor]
 
   # GET /cohorts
   # GET /cohorts.json
@@ -110,6 +112,6 @@ class CohortsController < ApplicationController
   end
 
   def sort_column
-    Cohort.column_names.include?(params[:sort]) ? params[:sort] : "name"
+    Cohort.column_names.include?(params[:sort]) ? params[:sort] : 'name'
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class CohortsControllerTest < ActionDispatch::IntegrationTest
@@ -5,17 +7,17 @@ class CohortsControllerTest < ActionDispatch::IntegrationTest
     @cohort = cohorts(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get cohorts_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_cohort_url
     assert_response :success
   end
 
-  test "should create cohort" do
+  test 'should create cohort' do
     assert_difference('Cohort.count') do
       post cohorts_url, params: { cohort: { end_date: @cohort.end_date, name: @cohort.name, start_date: @cohort.start_date } }
     end
@@ -23,22 +25,22 @@ class CohortsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to cohort_url(Cohort.last)
   end
 
-  test "should show cohort" do
+  test 'should show cohort' do
     get cohort_url(@cohort)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_cohort_url(@cohort)
     assert_response :success
   end
 
-  test "should update cohort" do
+  test 'should update cohort' do
     patch cohort_url(@cohort), params: { cohort: { end_date: @cohort.end_date, name: @cohort.name, start_date: @cohort.start_date } }
     assert_redirected_to cohort_url(@cohort)
   end
 
-  test "should destroy cohort" do
+  test 'should destroy cohort' do
     assert_difference('Cohort.count', -1) do
       delete cohort_url(@cohort)
     end

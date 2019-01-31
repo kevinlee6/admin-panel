@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   config.after_initialize do
@@ -17,8 +19,8 @@ Rails.application.configure do
     # Bullet.airbrake = true
     # Bullet.rollbar = true
     Bullet.add_footer = true
-    Bullet.stacktrace_includes = [ 'your_gem', 'your_middleware' ]
-    Bullet.stacktrace_excludes = [ 'their_gem', 'their_middleware', ['my_file.rb', 'my_method'], ['my_file.rb', 16..20] ]
+    Bullet.stacktrace_includes = %w[your_gem your_middleware]
+    Bullet.stacktrace_excludes = ['their_gem', 'their_middleware', ['my_file.rb', 'my_method'], ['my_file.rb', 16..20]]
     # Bullet.slack = { webhook_url: 'http://some.slack.url', channel: '#default', username: 'notifier' }
   end
 

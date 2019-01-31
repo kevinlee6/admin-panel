@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'faker'
 
 password = 'password'
@@ -20,7 +22,7 @@ admin2 = Admin.create!(
 )
 
 admin2.user = User.create!(
-  email:'demo@email.com',
+  email: 'demo@email.com',
   password: password
 )
 admin2.user.add_role :admin
@@ -58,7 +60,7 @@ Course.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     age: rand(18..88),
-    salary: rand(5..15) * 10000,
+    salary: rand(5..15) * 10_000,
     education: Instructor.education.sample,
     cohort_id: i + 1
   )

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Instructor < ApplicationRecord
   def self.education
     %w[High\ School College Masters PhD]
