@@ -1,4 +1,7 @@
 require 'faker'
+
+password = 'password'
+
 admin = Admin.create!(
   first_name: 'Kevin',
   last_name: 'Lee'
@@ -6,10 +9,21 @@ admin = Admin.create!(
 
 admin.user = User.create!(
   email: 'kevin.lee@gmail.com',
-  password: 'password'
+  password: password
 )
 
 admin.user.add_role :admin
+
+admin2 = Admin.create!(
+  first_name: 'Demo',
+  last_name: 'Test'
+)
+
+admin2.user = User.create!(
+  email:'demo@email.com',
+  password: password
+)
+admin2.user.add_role :admin
 
 Course.create!(
   name: 'Biology',
@@ -54,7 +68,7 @@ Course.create!(
         instructor.last_name +
         instructor.id.to_s +
         '@school.edu',
-    password: 'password'
+    password: password
   )
 
   instructor.user.add_role :instructor
@@ -82,7 +96,7 @@ Cohort.create!(
          student.last_name +
          student.id.to_s +
          '@school.edu',
-    password: 'password'
+    password: password
   )
 
   student.user.add_role :student
