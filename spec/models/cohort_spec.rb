@@ -2,15 +2,31 @@
 
 require 'rails_helper'
 
+params = {
+  name: 'Test',
+  start_date: DateTime.now - 5,
+  end_date: DateTime.now,
+  course_id: 1
+}
+
 RSpec.describe Cohort, type: :model do
   context 'validation tests' do
+    before do
+      Course.new(name: 'Test', class_hours: 10).save
+    end
+
+    it 'ensures that it can be saved' do
+      mod_params = params.clone
+      mod_params[:course_id] = Course.last.id
+      cohort = Cohort.new(mod_params).save
+      expect(cohort).to eq true
+    end
+
     it 'ensures that it must belongs_to course' do
-      params = {
-        name: 'Test',
-        start_date: DateTime.now - 5,
-        end_date: DateTime.now
-      }
-      cohort = Cohort.new(params).save
+      mod_params = params.clone
+      mod_params[:course_id] = Course.last.id
+      mod_params.delete(:course_id)
+      cohort = Cohort.new(mod_params).save
       expect(cohort).to eq false
     end
 
