@@ -11,12 +11,7 @@
 <% else %>
   <div class='demo-credentials'>
     <p>
-      Demo admin info:
-      <br />
-      Email: <strong>demo@email.com</strong>
-      <br />
-      Password: <strong>password </strong>
-      <br />
+      Demo info provided by default.
       <a href="https://github.com/kevinlee6/admin-panel">Github</a>
     </p>
   </div>
@@ -25,11 +20,11 @@
 
     <%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-group">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "demo@email.com", value: 'demo@email.com' %>
       </div>
 
       <div class="form-group">
-        <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password" %>
+        <%= f.password_field :password, autocomplete: "current-password", placeholder: "password", value: "password" %>
       </div>
 
       <% if devise_mapping.rememberable? -%>
