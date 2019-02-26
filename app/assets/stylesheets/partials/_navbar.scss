@@ -8,6 +8,10 @@
       color: goldenrod;
     }
 
+    li:first-child {
+      border-top: none;
+    }
+
     li {
       border-top: 1px solid white;
       padding: 10px 0;
@@ -21,10 +25,6 @@
         }
       }
     }
-  }
-
-  #dashboard {
-    border-top: none;
   }
 }
 

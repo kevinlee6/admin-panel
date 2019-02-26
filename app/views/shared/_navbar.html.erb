@@ -1,5 +1,8 @@
 <div id="left-navbar-container" class="col-md-2">
   <ul id="sidebar" class="nav flex-column">
+    <li class="nav-item account-link">
+      <%= link_to "Account", edit_user_registration_path, class:"#{'active' if current_page?(edit_user_registration_path)}" %>
+    </li>
     <li id="dashboard" class="nav-item">
       <%= link_to "Dashboard", root_path, class:"#{'active' if current_page?(root_path)}" %>
     </li>
