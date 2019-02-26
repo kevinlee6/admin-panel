@@ -19,28 +19,27 @@
 //= require_tree .
 
 $(() => {
-    $('#table th, #table .pagination').on('click', 'a', () => {
-        $.getScript(this.href);
-        return false;
-    });
+  $('#table th, #table .pagination').on('click', 'a', () => {
+    $.getScript(this.href);
+    return false;
+  });
 
-    $('.fa-graduation-cap').hover(() => {
-        $('.fa-graduation-cap').toggleClass('pulse');
-    });
+  $('.fa-graduation-cap').hover(() => {
+    $('.fa-graduation-cap').toggleClass('pulse');
+  });
 });
 
 const extract = id => {
-    const lName = document.getElementById(`student-lname-${id}`),
-        fName = document.getElementById(`student-fname-${id}`),
-        age = document.getElementById(`student-age-${id}`),
-        lNameReal = document.getElementById(`student-lname-real-${id}`),
-        fNameReal = document.getElementById(`student-fname-real-${id}`),
-        ageReal = document.getElementById(`student-age-real-${id}`);
+  const lName = document.getElementById(`student-lname-${id}`),
+    fName = document.getElementById(`student-fname-${id}`),
+    age = document.getElementById(`student-age-${id}`),
+    lNameReal = document.getElementById(`student-lname-real-${id}`),
+    fNameReal = document.getElementById(`student-fname-real-${id}`),
+    ageReal = document.getElementById(`student-age-real-${id}`);
 
-    lNameReal.value = lName.value;
-    fNameReal.value = fName.value;
-    ageReal.value = age.value;
+  lNameReal.value = lName.value;
+  fNameReal.value = fName.value;
+  ageReal.value = age.value;
 
-    $(`#student-submit-btn-${id}`).click();
+  $(`#student-submit-btn-${id}`).click();
 };
-

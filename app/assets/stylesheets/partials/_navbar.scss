@@ -31,5 +31,15 @@
 @media (max-width: 768px) {
   #left-navbar-container {
     display: none;
+    position: absolute;
+    width: 40vw;
+    z-index: 2000;
+    opacity: 0.95;
+  }
+}
+
+@media (max-width: 576px) {
+  #left-navbar-container {
+    width: 60vw;
   }
 }
