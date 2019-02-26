@@ -23,20 +23,7 @@
           </div>
       </div>
     <% else %>
-      <header id="main-header" class="row">
-        <div class="col account-link-container">
-          <%= link_to 'Account', edit_user_registration_path, class: 'header-link' %>
-        </div>
-        <h4 class="col">Admin Panel</h4>
-        <div class="sign-link-container col">
-          <% if user_signed_in? %>
-            <%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: 'header-link' %>
-          <% else %>
-            <%= link_to 'Sign in', new_user_session_path, class: 'header-link' %>
-          <% end %>
-        </div>
-
-      </header>
+      <%= render "shared/header" %>
       <div id="wrapper" class="container-fluid row">
         <%= render "shared/navbar" %>
         <div class="col-md-10">
