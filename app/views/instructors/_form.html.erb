@@ -16,7 +16,7 @@
     <%= form.select :age, (1..149) %>
     <%= form.number_field :salary, placeholder: "Yearly Salary" %>
     <%= form.select :education, Instructor.education %>
-    <%= form.select :cohort_id, @instructor.cohort ? Cohort.all.select { |x| x.instructor.nil? }.map { |x| [x.name, x.id] } << [@instructor.cohort.name, @instructor.cohort.id] : Cohort.all.select { |x| x.instructor.nil? }.map { |x| [x.name, x.id] }, include_blank: true %>
+    <%= form.select :cohort_id, @cohorts, include_blank: true %>
     <%= form.submit "Submit", class:"btn btn-info" %>
 
 <% end %>

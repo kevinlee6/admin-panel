@@ -25,6 +25,9 @@ class InstructorsController < ApplicationController
   # GET /instructors/1/edit
   def edit
     authorize @instructor
+    @cohorts = @instructor.cohort ?
+      Cohort.includes(:instructor).select { |x| x.instructor.nil? }.map { |x| [x.name, x.id] } << [@instructor.cohort.name, @instructor.cohort.id] :
+      Cohort.includes(:instructor).select { |x| x.instructor.nil? }.map { |x| [x.name, x.id] }
   end
 
   # POST /instructors
