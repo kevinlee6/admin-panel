@@ -26,7 +26,7 @@
       <%= render "shared/header" %>
       <div id="wrapper" class="container-fluid row">
         <%= render "shared/navbar" %>
-        <div class="col-md-10">
+        <div class="main-content col-md-10">
           <div id="main" class="container">
             <% flash.each do |key, value| %>
               <div class="alert alert-<%= key %>"><%= value %></div>

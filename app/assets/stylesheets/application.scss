@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
-@import "bootstrap";
-@import "rails_bootstrap_forms";
-@import "./partials/*";
+@import 'bootstrap';
+@import 'rails_bootstrap_forms';
+@import './partials/*';
 
 body {
   font-family: 'Raleway', sans-serif;
@@ -64,20 +64,20 @@ body {
 }
 
 .asc {
-  position:relative;
+  position: relative;
 }
 .asc:before {
   margin-right: 5px;
-  content: "\f106";
+  content: '\f106';
   font-family: 'Font Awesome\ 5 Free';
 }
 
 .desc {
-  position:relative;
+  position: relative;
 }
 .desc:before {
   margin-right: 5px;
-  content: "\f107";
+  content: '\f107';
   font-family: 'Font Awesome\ 5 Free';
 }
 
@@ -87,4 +87,8 @@ body {
   margin: 30px;
   //padding: 10%;
   font-size: 2em;
+}
+
+.main-content {
+  width: 100vw;
 }
