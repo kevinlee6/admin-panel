@@ -6,13 +6,17 @@
   margin: 0;
   z-index: 2;
 
-  h4{
+  h4 {
     margin: 0;
     text-align: center;
   }
 
   .account-link-container {
     text-align: left;
+  }
+
+  .header-title {
+    color: white;
   }
 
   .sign-link-container {
@@ -27,5 +31,9 @@
       color: #bbb;
       text-decoration: none;
     }
+  }
+}
+@media (max-width: 768px) {
+  .account-link-container {
   }
 }

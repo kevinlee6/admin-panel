@@ -2,7 +2,7 @@
   <div class="col account-link-container">
     <%= link_to 'Account', edit_user_registration_path, class: 'header-link' %>
   </div>
-  <h4 class="col">Admin Panel</h4>
+  <a class='col header-link' href='/'><h4>Admin Panel</h4></a>
   <div class="sign-link-container col">
     <% if user_signed_in? %>
       <%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: 'header-link' %>
