@@ -18,17 +18,10 @@
     text-align: left;
   }
 
-  .header-title {
-    color: white;
-  }
-
-  .sign-link-container {
-    text-align: right;
-  }
-
   .header-link {
     color: white;
     font-size: 1.3em;
+    white-space: nowrap;
 
     &:hover {
       color: #bbb;

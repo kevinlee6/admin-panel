@@ -1,5 +1,12 @@
 <div id="left-navbar-container" class="col-md-2">
   <ul id="sidebar" class="nav flex-column">
+    <li class="nav-item">
+      <% if user_signed_in? %>
+        <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+      <% else %>
+        <%= link_to 'Sign in', new_user_session_path %>
+      <% end %>
+    </li>
     <li class="nav-item account-link">
       <%= link_to "Account", edit_user_registration_path, class:"#{'active' if current_page?(edit_user_registration_path)}" %>
     </li>

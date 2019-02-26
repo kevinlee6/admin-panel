@@ -1,13 +1,10 @@
 <header id="main-header" class="row">
-  <div class="col navbar-btn-container">
+  <div class="col-md-1 navbar-btn-container">
     <i class="fas fa-bars header-link navbar-menu-btn"></i>
   </div>
-  <a class='col header-link' href='/'><h4>Admin Panel</h4></a>
-  <div class="sign-link-container col">
-    <% if user_signed_in? %>
-      <%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: 'header-link' %>
-    <% else %>
-      <%= link_to 'Sign in', new_user_session_path, class: 'header-link' %>
-    <% end %>
-  </div>
+  <h4 class="col-md-11">
+    <a class='header-link' href='/'>
+      Admin Panel
+    </a>
+  </h4>
 </header>
