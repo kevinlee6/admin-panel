@@ -27,7 +27,7 @@
       <% else %>
         <td scope="row">None</td>
     <% end %>
-      <% if current_user.has_role? 'admin' %>
+      <% if @is_admin %>
         <td scope="row" class="text-center">
           <%= link_to edit_instructor_path(instructor) do %>
             <i class="far fa-edit"></i>

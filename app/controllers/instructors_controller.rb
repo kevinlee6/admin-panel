@@ -6,6 +6,7 @@ class InstructorsController < ApplicationController
   # GET /instructors
   # GET /instructors.json
   def index
+    @is_admin = current_user.has_role? 'admin'
     @instructors = Instructor.includes(:cohort).order(sort_column + ' ' + sort_direction)
   end
 
