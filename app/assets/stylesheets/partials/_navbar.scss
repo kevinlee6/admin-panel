@@ -27,3 +27,9 @@
     border-top: none;
   }
 }
+
+@media (max-width: 768px) {
+  #left-navbar-container {
+    display: none;
+  }
+}
